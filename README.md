@@ -1,8 +1,4 @@
----
-
-**\***GAME LOOP**\***
-
----
+# GAME LOOP
 
 Game Start
 ├── Dealer uses DeckGenerator to create and shuffle the card deck.
@@ -28,45 +24,46 @@ Game Start
 ├── Wait for user to start new round or exit.
 └── Loop End (next round or game over)
 
----
+# GAME COMPONENTS
 
-**\***GAME COMPONENTS**\***
+## GameManager:
 
----
-
-GameManager:
 Manages game loop. It initially distirbute the cards to both players and then handles the palyer turns. Game continues until both players finis their move as per logic.
 
-HandVisual
+## HandVisual
+
 Responsible for managing player hand visual state. It manages card animations, card stack, hand score text and hand state.
 
-PlayerController:
+## PlayerController:
+
 Manages the player hand UI and player hand state.
 
-AIPlayerController:
+## AIPlayerController:
+
 Inherited from PlayerController and user input related functiosn are overritten with AI logic.
 
-Dealer:
+## Dealer:
+
 Manages the card dealing logic. It has a card deck generator which basically generates a suffled card deck. It has public functions to deal random card to players.
 
-CardsPool:
+## CardsPool:
+
 A card storage to reuse cards instead of creating new ones or throwing old ones away every time.
 
-WinEvaluator:
+## WinEvaluator:
+
 Class to evaluate winners. Current win evaluator is fairly simple but win evaluation code was seperated so it can be modified/updated easily when needed.
 
-HandEvaluators:
+## HandEvaluators:
+
 Simple evaluators for AI hit logic calculation. It uses IHandDataProvider for getting the player and ai hands data which is need to decided AI move.
 This sytem can easily be explaned with more rules. Also with some modification we can create a simple comnfiguration file (JSON) for AI rules which can be modified from backend as well.
 
-CardSO:
+## CardSO:
+
 A scriptable object to hold card data (sprite + value ). Created a EditorWindow script CardsDataGenerator which basically generte CardSO of all the cards.
 
----
-
-**\***EXTERNAL CODE/LIBRARY**\***
-
----
+# EXTERNAL CODE/LIBRARY
 
 DoTween: for card movement
 SafeArea: Script to adjust UI within safe area of device
