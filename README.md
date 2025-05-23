@@ -1,6 +1,30 @@
 # GAME LOOP
 
-<pre lang="markdown"> ## 🃏 Blackjack Game Loop – Structured Flow ``` Game Start ├── Dealer uses DeckGenerator to create and shuffle the card deck. ├── GameManager deals initial cards to each player (e.g., 2 cards each). │ ├── Main Game Loop (per round) │ ├── Loop Start │ │ │ ├── For each player (including dealer, if acting separately) │ │ ├── GameManager gives turn to the player. │ │ ├── Wait for player input (Hit or Stand). │ │ ├── Process the input: │ │ │ ├── If Hit → deal card, update hand. │ │ │ ├── If Stand → end turn. │ │ ├── Check game state (e.g., bust, blackjack, max cards). │ │ ├── If game ends early → break loop to Result phase. │ │ │ ├── After all players finish or game ends │ │ ├── GameManager checks for final state (dealer logic, rules). │ │ └── Transition to result mode. │ ├── GameManager displays the result (Win/Lose/Tie). ├── Wait for user to start new round or exit. └── Loop End (next round or game over) ``` </pre>
+```
+Game Start
+├── Dealer uses DeckGenerator to create and shuffle the card deck.
+├── GameManager deals initial cards to each player (e.g., 2 cards each).
+│
+├── Main Game Loop (per round)
+│ ├── Loop Start
+│ │
+│ ├── For each player (including dealer, if acting separately)
+│ │ ├── GameManager gives turn to the player.
+│ │ ├── Wait for player input (Hit or Stand).
+│ │ ├── Process the input:
+│ │ │ ├── If Hit → deal card, update hand.
+│ │ │ ├── If Stand → end turn.
+│ │ ├── Check game state (e.g., bust, blackjack, max cards).
+│ │ ├── If game ends early → break loop to Result phase.
+│ │
+│ ├── After all players finish or game ends
+│ │ ├── GameManager checks for final state (dealer logic, rules).
+│ │ └── Transition to result mode.
+│
+├── GameManager displays the result (Win/Lose/Tie).
+├── Wait for user to start new round or exit.
+└── Loop End (next round or game over)
+```
 
 # GAME COMPONENTS
 
